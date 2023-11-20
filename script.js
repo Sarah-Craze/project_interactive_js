@@ -1,3 +1,5 @@
+// Fonctionnalité 1 :
+
 let clicNumber = 0; // Variable compteur initialisée à 0
 
 // Le document est rattacher à élément avec un TagName de la ligne 159
@@ -8,6 +10,7 @@ document.getElementsByTagName("footer")[0].addEventListener("click", function(){
 	console.log(`Click ${clicNumber}`);
 });
 
+// Fonctionnalité 2 :
 
 // Select the element with the class "navbar-toggler" (the hamburger button)
 document.getElementsByClassName("navbar-toggler")[0].addEventListener("click", function() {
@@ -15,6 +18,7 @@ document.getElementsByClassName("navbar-toggler")[0].addEventListener("click", f
     document.getElementById("navbarHeader").classList.toggle("collapse");
 });
 
+// Fonctionnalité 3 :
 
 // Sélectionnez la première carte
 let firstCard = document.getElementsByClassName("card")[0];
@@ -32,6 +36,7 @@ editButton.addEventListener("click", function() {
     firstCard.style.color = "red";
 });
 
+// Fonctionnalité 4 :
 
 // Sélectionnez la deuxième carte
 let secondCard = document.getElementsByClassName("card")[1];
@@ -50,6 +55,7 @@ editButtonSecondCard.addEventListener("click", function() {
     }
 });
 
+// Fonctionnalité 5 :
 
 // Sélectionnez le premier lien (supposé être le lien vers le fichier Bootstrap) dans le document
 let cdn = document.getElementsByTagName("link")[0];
@@ -66,3 +72,41 @@ document.getElementsByTagName("header")[0].addEventListener("dblclick", function
     }
 });
 
+// Fonctionnalité 7 :
+
+// Sélectionnez le bouton "==>"
+
+let moveButton = document.querySelector('.btn-secondary');
+
+// Ajoutez un écouteur d'événements pour le clic sur le bouton "==>"
+
+moveButton.addEventListener('click', function() {
+    // Sélectionnez le parent des cartes
+    let cardContainer = document.querySelector('.album .row');
+
+    // Sélectionnez la dernière carte
+    let lastCard = cardContainer.lastElementChild;
+
+    // Déplacez la dernière carte en premier
+    cardContainer.insertBefore(lastCard, cardContainer.firstElementChild);
+});
+
+// Fonctionnalité 8 :
+
+// Sélectionnez le bouton "<=="
+let moveButtonLeft = document.querySelector('.btn-primary');
+
+// Ajoutez un écouteur d'événements pour le clic sur le bouton "<=="
+moveButtonLeft.addEventListener('click', function(event) {
+    // Bloquez le comportement par défaut du lien HTML sur le bouton
+    event.preventDefault();
+
+    // Sélectionnez le parent des cartes
+    let cardContainer = document.querySelector('.album .row');
+
+    // Sélectionnez la première carte
+    let firstCard = cardContainer.firstElementChild;
+
+    // Déplacez la première carte en dernier
+    cardContainer.insertBefore(firstCard, cardContainer.lastElementChild.nextSibling);
+});
